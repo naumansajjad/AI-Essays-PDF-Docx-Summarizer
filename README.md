@@ -1,4 +1,4 @@
-# AI Books and Essays Summarizer
+# AI InsightfulSummaries
 
 ## Overview
 
