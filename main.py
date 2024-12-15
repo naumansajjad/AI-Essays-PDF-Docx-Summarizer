@@ -1,20 +1,52 @@
 import openai
+import PyPDF2
+import docx
 import os
 
 #import openai credentials from os
 openai.api_key=os.environ.get("OPENAI_API_KEY")
 
-#filepath to the input file
+#file_path to the input file
+"""Please note that pdf, docx files can now be used"""
 file_path='user_input.txt'
 
-#extract text from the input file
-text=''
-def extract_text_from_input_file(file_path):
+#extract text from text file
+def extract_text_from_text_file(file_path):
     with open(file_path, 'r') as file:
         text=file.read()
     return text
 
-text = extract_text_from_input_file(file_path)
+#extract text from pdf file
+def extract_text_from_pdf_file(file_path):
+    with open(file_path, 'rb') as file:
+        reader = PyPDF2.PdfReader(file)
+        text = ''
+        for page in reader.pages:
+            text += page.extract_text()
+    return text
+
+#extract text from docx file
+def extract_text_from_docx(file_path):
+  doc = docx.Document(file_path)
+  text = ''
+  for paragraph in doc.paragraphs:
+    text += paragraph.text
+  return text
+
+#Detect the file format of input file
+def extract_text(file_path):
+  if file_path.endswith('.pdf'):
+    return extract_text_from_pdf(file_path)
+  elif file_path.endswith('.docx'):
+    return extract_text_from_docx(file_path)
+  elif file_path.endswith('.txt'):
+    return extract_text_from_txt(file_path)
+  else:
+    print('Unsupported file format')
+    return ''
+
+
+text = extract_text(file_path)
 
 #print text given by user
 """print(text)"""
@@ -43,7 +75,7 @@ def process_text(text):
             }
         ]
     )
-    print("Analyzing words.....")
+    print("Analyzing input file.....")
     return chat_completion.choices[0].message.content.strip()
 
 #calling functions of step 1 & 2
@@ -83,7 +115,7 @@ def process_key_Notes(text):
                 "Make sure to accurately capture the meaning and represent it in numbered points in order."
                 + "At the end, include a heading titled 'Bare Essentials' that summarizes the core concepts from the text."
             }])
-    print("analyzing words.....")
+    print("analyzing input file.....")
     return chat_completion.choices[0].content.strip()
 
 def generate_keynotes(text):
