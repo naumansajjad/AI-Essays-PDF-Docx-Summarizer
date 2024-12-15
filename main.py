@@ -1,14 +1,15 @@
-import openai
+from groq import Groq
 import PyPDF2
 import docx
 import os
 
 #import openai credentials from os
-openai.api_key=os.environ.get("OPENAI_API_KEY")
+client = Groq(api_key=os.environ.get("GROQ_API_KEY"),)
 
 #file_path to the input file
 """Please note that pdf, docx files can now be used"""
-file_path='user_input.txt'
+
+file_path="C:/Users/nauma/Documents/VS_Code_User/AI_SUMMARIZER/user_input.txt"
 
 #extract text from text file
 def extract_text_from_txt_file(file_path):
@@ -64,8 +65,8 @@ def text_chunker(text):
 #Step 2 (Text Processing)
 def process_text(text):
     #this step summarises chunks of text
-    chat_completion=openai.chat.completions.create(
-        model="gpt-3.5-turbo",
+    chat_completion=client.chat.completions.create(
+        model="llama3-8b-8192",
         messages=[
             {
                 "role":"user",
@@ -106,8 +107,8 @@ file_create_write(file_path,Final_Summary,'Conclusion_Summary.text')
 
 #Step 5: Key_Notes Generation
 def process_key_Notes(text):
-    chat_completion = openai.chat.completions.create(
-        model="gpt-3.5-turbo",
+    chat_completion = client.chat.completions.create(
+        model="llama3-8b-8192",
         messages= [{
                 'role':'user',
                 'content':"Generate keynotes from the following text:"
@@ -116,7 +117,7 @@ def process_key_Notes(text):
                 + "At the end, include a heading titled 'Bare Essentials' that summarizes the core concepts from the text."
             }])
     print("analyzing input file.....")
-    return chat_completion.choices[0].content.strip()
+    return chat_completion.choices[0].message.content.strip()
 
 def generate_keynotes(text):
     words=text.split()
