@@ -1,0 +1,49 @@
+Here are the keynotes from the text:
+
+**Network Topology**
+
+1. Network topology refers to the arrangement of elements (links, nodes, etc.) in a communication network.
+2. It can be used to define or describe various types of telecommunication networks.
+3. Network topology is composed of physical and logical topologies.
+4. Physical topology refers to the placement of network components, including the layout of cabling, node locations, and links between nodes and cabling.
+5. Logical topology illustrates how data flows within a network.
+
+**Categories of Network Topologies**
+
+1. Physical topologies are determined by the capabilities of network access devices and media, level of control or fault tolerance desired, and cost associated with cabling or telecommunication circuits.
+2. Logical topologies refer to the ways signals act on the network media or the way data passes through the network from one device to another.
+
+**Types of Network Topologies**
+
+1. Point-to-point topology
+2. Bus topology
+3. Star topology
+4. Ring topology
+5. Mesh topology
+6. Tree topology
+7. Hybrid topology
+8. Daisy-chain topology
+
+**Advantages and Disadvantages of Network Topologies**
+
+1. Each topology has its own advantages and disadvantages.
+2. Bustopologies are less expensive to implement, but can be a single point of failure and have limited bandwidth.
+3. Startopologies are more reliable, but can be more expensive to implement.
+4. Transmission media used to link devices include electrical cables, optical fiber, and radio waves.
+
+**Network Speeds**
+
+1. Network speeds range from 2 million to 10 billion bits per second for twisted pair cabling.
+2. Optical fibers can transmit data at speeds of up to 1 trillion bits per second.
+
+**Wired Technology Options**
+
+1. Wired technology options are often more affordable than wireless alternatives, which command a higher price premium.
+
+**Bare Essentials**
+
+* Network topology refers to the physical and logical arrangement of elements in a communication network.
+* Network topologies can be categorized into physical and logical topologies.
+* Each type of network topology has its own advantages and disadvantages.
+* Network topologies include point-to-point, bus, star, ring, mesh, tree, hybrid, and daisy-chain topologies.
+* Transmission media used to link devices include electrical cables, optical fiber, and radio waves.

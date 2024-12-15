@@ -9,7 +9,7 @@ client = Groq(api_key=os.environ.get("GROQ_API_KEY"),)
 #file_path to the input file
 """Please note that pdf, docx files can now be used"""
 
-file_path="C:/Users/nauma/Documents/VS_Code_User/AI_SUMMARIZER/user_input.txt"
+file_path="user_input.txt"
 
 #extract text from text file
 def extract_text_from_txt_file(file_path):
