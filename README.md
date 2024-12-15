@@ -13,11 +13,6 @@ The **AI Books and Essays Summarizer** is an innovative tool designed to efficie
 
 ## How to Run
 
-### Running via Replit
-
-1. Visit the [Replit link](https://replit.com/).
-2. Click on "Run" to start using the summarizer directly in your browser.
-
 ### Running Locally
 
 1. Fork the repository to your GitHub account.
